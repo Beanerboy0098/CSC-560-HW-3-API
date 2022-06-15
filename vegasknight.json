@@ -1,0 +1,161 @@
+{
+  "Player1": {
+    "Name": "Jonathan Marchessault",
+    "Position": "Center",
+    "Games Played": 76,
+    "Goals": 30,
+    "Assists": 36,
+    "Penalty Minutes": 36,
+    "Power Play Goals": 5,
+    "Power Play assists": 15,
+    "Shots on Goal": 251
+  },
+  "Player2": {
+    "Name": "Chandler Stephenson",
+    "Position": "Center",
+    "Games Played": 79,
+    "Goals": 21,
+    "Assists": 43,
+    "Penalty Minutes": 26,
+    "Power Play Goals": 6,
+    "Power Play assists": 8,
+    "Shots on Goal": 125
+  },
+  "Player3": {
+    "Name": "Shea Theodore",
+    "Position": "Defenseman",
+    "Games Played": 78,
+    "Goals": 14,
+    "Assists": 38,
+    "Penalty Minutes": 24,
+    "Power Play Goals": 1,
+    "Power Play assists": 11,
+    "Shots on Goal": 205
+  },
+  "Player4": {
+    "Name": "Alex Pietrangelo",
+    "Position": "Defenseman",
+    "Games Played": 80,
+    "Goals": 13,
+    "Assists": 31,
+    "Penalty Minutes": 42,
+    "Power Play Goals": 3,
+    "Power Play assists": 10,
+    "Shots on Goal": 227
+  },
+  "Player5": {
+    "Name": "Evgenii Dadonov",
+    "Position": "Right Wing",
+    "Games Played": 78,
+    "Goals": 20,
+    "Assists": 23,
+    "Penalty Minutes": 18,
+    "Power Play Goals": 5,
+    "Power Play assists": 3,
+    "Shots on Goal": 177
+  },
+  "Player6": {
+    "Name": "Nicolas Roy",
+    "Position": "Center",
+    "Games Played": 78,
+    "Goals": 15,
+    "Assists": 24,
+    "Penalty Minutes": 51,
+    "Power Play Goals": 2,
+    "Power Play assists": 3,
+    "Shots on Goal": 145
+  },
+  "Player7": {
+    "Name": "Max Pacioretty",
+    "Position": "Left Wing",
+    "Games Played": 39,
+    "Goals": 19,
+    "Assists": 18,
+    "Penalty Minutes": 33,
+    "Power Play Goals": 4,
+    "Power Play assists": 8,
+    "Shots on Goal": 148
+  },
+  "Player8": {
+    "Name": "Mark Stone",
+    "Position": "Right Wing",
+    "Games Played": 37,
+    "Goals": 9,
+    "Assists": 11,
+    "Penalty Minutes": 8,
+    "Power Play Goals": 3,
+    "Power Play assists": 3,
+    "Shots on Goal": 71
+  },
+  "Player9": {
+    "Name": "William Carrier",
+    "Position": "Left Wing",
+    "Games Played": 63,
+    "Goals": 9,
+    "Assists": 11,
+    "Penalty Minutes": 34,
+    "Power Play Goals": 0,
+    "Power Play assists": 0,
+    "Shots on Goal": 120
+  },
+  "Player10": {
+    "Name": "Keegan Kolesar",
+    "Position": "Right Wing",
+    "Games Played": 77,
+    "Goals": 7,
+    "Assists": 17,
+    "Penalty Minutes": 68,
+    "Power Play Goals": 1,
+    "Power Play assists": 0,
+    "Shots on Goal": 94
+  },
+  "Player11": {
+    "Name": "Jack Eichel",
+    "Position": "Center",
+    "Games Played": 34,
+    "Goals": 14,
+    "Assists": 11,
+    "Penalty Minutes": 10,
+    "Power Play Goals": 3,
+    "Power Play assists": 5,
+    "Shots on Goal": 133
+  },
+  "Player12": {
+    "Name": "Dylan Coghlan",
+    "Position": "Defenseman",
+    "Games Played": 59,
+    "Goals": 3,
+    "Assists": 10,
+    "Penalty Minutes": 18,
+    "Power Play Goals": 2,
+    "Power Play assists": 2,
+    "Shots on Goal": 108
+  },
+  "Player13": {
+    "Name": "Logan Thompson",
+    "Position": "Goalie",
+    "Games Played": 19,
+    "Goals Against": 49,
+    "Shots Against": 569,
+    "Wins": 10,
+    "Loses": 5
+  },
+  "Player14": {
+    "Name": "Robin Lehner",
+    "Position": "Goalie",
+    "Games Played": 44,
+    "Goals Against": 120,
+    "Shots Against": 1288,
+    "Wins": 23,
+    "Loses": 17
+  },
+  "Player15": {
+    "Name": "Laurent Brossoit",
+    "Position": "Goalie",
+    "Games Played": 24,
+    "Goals Against": 62,
+    "Shots Against": 586,
+    "Wins": 10,
+    "Loses": 9
+  }
+}
