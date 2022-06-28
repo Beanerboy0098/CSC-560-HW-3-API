@@ -364,38 +364,7 @@
           <label for="Position">Position</label><br>
           <input type="text" [(ngModel)]="Position" name="Position"><br>
         </div>
-        <div ng-if="Center"!>
-        <div style="margin: 10px;">
-          <label for="Games_Played">Games_Played</label><br>
-          <input type="number" [(ngModel)]="Games_Played" name="Games_Played"><br>
-        </div>
-        
-        <div style="margin: 10px;">
-          <label for="Goals">Goals</label><br>
-          <input type="number" [(ngModel)]="Goals" name="Goals"><br>
-        </div>
-        <div style="margin: 10px;">
-          <label for="Assists">Assists</label><br>
-          <input type="number" [(ngModel)]="Assists" name="Assists"><br>
-        </div>
-        <div style="margin: 10px;">
-          <label for="Penalty_Minutes">Penalty_Minutes</label><br>
-          <input type="number" [(ngModel)]="Penalty_Minutes" name="Penalty_Minutes"><br>
-        </div>
-        <div style="margin: 10px;">
-          <label for="Power_Play_Goals">Power_Play_Goals</label><br>
-          <input type="number" [(ngModel)]="Power_Play_Goals" name="Power_Play_Goals"><br>
-        </div>
-
-        <div style="margin: 10px;">
-          <label for="Power_Play_Assists">Power_Play_Assists</label><br>
-          <input type="number" [(ngModel)]="Power_Play_Assists" name="Power_Play_Assists"><br>
-        </div>
-        <div style="margin: 10px;">
-          <label for="Shots_on_Goal">Shots_on_Goal</label><br>
-          <input type="number" [(ngModel)]="Shots_on_Goal" name="Shots_on_Goal"><br>
-        </div>
-        <ng-template #showThis>
+        <div ng-if="Center">
           <div style="margin: 10px;">
             <label for="Games_Played">Games_Played</label><br>
             <input type="number" [(ngModel)]="Games_Played" name="Games_Played"><br>
@@ -415,6 +384,39 @@
           <div style="margin: 10px;">
             <label for="Loses">Loses</label><br>
             <input type="number" [(ngModel)]="Loses" name="Loses"><br>
+          </div>
+
+       
+        <ng-template #showThis>
+          <div style="margin: 10px;">
+            <label for="Games_Played">Games_Played</label><br>
+            <input type="number" [(ngModel)]="Games_Played" name="Games_Played"><br>
+          </div>
+          
+          <div style="margin: 10px;">
+            <label for="Goals">Goals</label><br>
+            <input type="number" [(ngModel)]="Goals" name="Goals"><br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Assists">Assists</label><br>
+            <input type="number" [(ngModel)]="Assists" name="Assists"><br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Penalty_Minutes">Penalty_Minutes</label><br>
+            <input type="number" [(ngModel)]="Penalty_Minutes" name="Penalty_Minutes"><br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Power_Play_Goals">Power_Play_Goals</label><br>
+            <input type="number" [(ngModel)]="Power_Play_Goals" name="Power_Play_Goals"><br>
+          </div>
+  
+          <div style="margin: 10px;">
+            <label for="Power_Play_Assists">Power_Play_Assists</label><br>
+            <input type="number" [(ngModel)]="Power_Play_Assists" name="Power_Play_Assists"><br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Shots_on_Goal">Shots_on_Goal</label><br>
+            <input type="number" [(ngModel)]="Shots_on_Goal" name="Shots_on_Goal"><br>
           </div>
         </ng-template>
         </div>
