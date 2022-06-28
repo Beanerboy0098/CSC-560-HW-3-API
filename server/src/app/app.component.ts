@@ -47,6 +47,10 @@ export class AppComponent implements OnInit {
   Power_Play_Goals: this.Power_Play_Goals?? 0,
   Power_Play_Assists: this.Power_Play_Assists?? 0,
   Shots_on_Goal: this.Shots_on_Goal?? 0,
+  Goals_Against: this.Goals_Against?? 0,
+  Shots_Against: this.Shots_Against?? 0,
+  Wins: this.Wins?? 0,
+  Loses: this.Loses?? 0
     }
     this.playerService.addPlayer(newPlayer)
     .subscribe(Players =>
@@ -91,6 +95,10 @@ updatePlayer(id:any)
     Power_Play_Goals: this.Power_Play_Goals?? 0,
     Power_Play_Assists: this.Power_Play_Assists?? 0,
     Shots_on_Goal: this.Shots_on_Goal?? 0,
+    Goals_Against: this.Goals_Against?? 0,
+    Shots_Against: this.Shots_Against?? 0,
+    Wins: this.Wins?? 0,
+    Loses: this.Loses?? 0
   }
 
   this.playerService.updatePlayer(id, updatedPlayer).subscribe();

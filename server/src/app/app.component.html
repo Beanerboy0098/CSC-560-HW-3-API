@@ -351,11 +351,11 @@
   </div>
 
   <h2>Create/Edit Player</h2>
-  <p>Fill fields and select Add to add a player. Fill fields and select update on a particular player to edit that player</p>
+  <p>Fill fields and select "Add" to add a Player to the database . Fill fields and select update on a particular player to edit that player</p>
   <div class="col-xl-12">
     <body>
       <h3>Player</h3>
-      <form (submit)="addPlayer()" style="background-color: lightblue; margin: 30px;">
+      <form (submit)="addPlayer()" style="background-color: rgb(230, 212, 173); margin: 30px;">
         <div style="margin: 10px;">
           <label for="Name">Full Name</label><br>
           <input type="text" [(ngModel)]="Name" name="name"><br>
@@ -364,10 +364,12 @@
           <label for="Position">Position</label><br>
           <input type="text" [(ngModel)]="Position" name="Position"><br>
         </div>
+        <div ng-if="Center"!>
         <div style="margin: 10px;">
           <label for="Games_Played">Games_Played</label><br>
           <input type="number" [(ngModel)]="Games_Played" name="Games_Played"><br>
         </div>
+        
         <div style="margin: 10px;">
           <label for="Goals">Goals</label><br>
           <input type="number" [(ngModel)]="Goals" name="Goals"><br>
@@ -392,6 +394,29 @@
         <div style="margin: 10px;">
           <label for="Shots_on_Goal">Shots_on_Goal</label><br>
           <input type="number" [(ngModel)]="Shots_on_Goal" name="Shots_on_Goal"><br>
+        </div>
+        <ng-template #showThis>
+          <div style="margin: 10px;">
+            <label for="Games_Played">Games_Played</label><br>
+            <input type="number" [(ngModel)]="Games_Played" name="Games_Played"><br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Goals_Against">Goals_Against</label><br>
+            <input type="number" [(ngModel)]="Goals_Against" name="Goals_Against"><br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Shots_Against">Shots_Against</label><br>
+            <input type="number" [(ngModel)]="Shots_Against" name="Shots_Against"><br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Wins">Wins</label><br>
+            <input type="number" [(ngModel)]="Wins" name="Wins"><br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Loses">Loses</label><br>
+            <input type="number" [(ngModel)]="Loses" name="Loses"><br>
+          </div>
+        </ng-template>
         </div>
         <input type="submit" value = "Add">
       </form>
