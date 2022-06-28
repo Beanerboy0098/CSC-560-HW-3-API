@@ -385,7 +385,7 @@
             <label for="Loses">Loses</label><br>
             <input type="number" [(ngModel)]="Loses" name="Loses"><br>
           </div>
-</div>
+        </div>
        
         <ng-template #showThis>
           <div style="margin: 10px;">
@@ -439,6 +439,23 @@
         <div class = "col-mid-3">
           Games Played:     {{Players.Games_Played}}
         </div>
+        <div ng-if="Center">
+          <div class = "col-mid-3">
+            Goals Against:     {{Players.Goals_Against}}
+          </div>
+          <div class = "col-mid-3">
+            Shots Against:     {{Players.Shots_Against}}
+          </div>
+          <div class = "col-mid-3">
+            Wins:     {{Players.Wins}}
+          </div>
+          <div class = "col-mid-3">
+            Loses:     {{Players.Loses}}
+          </div>
+        </div>
+
+        <ng-template #showThis>
+
         <div class = "col-mid-3">
           Goals:     {{Players.Goals}}
         </div>
@@ -457,7 +474,8 @@
         <div class = "col-mid-3">
           Shots on Goal:     {{Players.Shots_on_Goal}}
         </div>
-
+      
+    </ng-template>
         <input type="button" (click) = "deletePlayer(Players._id)"  value="DELETE"> 
       </div>
   <!-- Footer -->
