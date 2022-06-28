@@ -1,75 +1,63 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 //schema
-const Players = mongoose.model('Players', {
+const PlayerSchema = new Schema( {
     Name: {
-        type: String,
-        required: true
+        type: String
     },
 Position : {
-        type: String,
-        required: true
+        type: String
     },
     Games_Played: {
-        type: Number,
-        required: true
+        type: Number
     },
     
 Goals: {
-        type: Number,
-        required: true
+        type: Number
+       
     },
 
 
 Assists: {
-        type: Number,
-        required: true
+        type: Number
     },
 
 
 Penalty_Minutes: {
-        type: Number,
-        required: true
+        type: Number
     },
 
 Power_Play_Goals: {
-        type: Number,
-        required: true
+        type: Number
     },
 
 
 Power_Play_assists: {
-        type: Number,
-        required: true
+        type: Number
     },
 
 Shots_on_Goal: {
-        type: Number,
-        required: true
+        type: Number
     },
 
 Goals_Against: {
-        type: Number,
-        required: false
+        type: Number
     },
 
 Shots_Against: {
-        type: Number,
-        required: false
+        type: Number
     },
 
 Wins: {
-        type: Number,
-        required: false
+        type: Number
     },
 
 Loses: {
-        type: Number,
-        required: false
+        type: Number
     }
 
    
 });
 
-module.exports = {Players}
-
+module.exports = mongoose.model("Players", PlayerSchema,"Players");

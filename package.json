@@ -1,10 +1,9 @@
 {
-  "name": "vegasknight-nhl-api",
+  "name": "node-vegasknight-nhl-api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "vegas",
@@ -14,6 +13,7 @@
   "author": "Benjamin Huber",
   "license": "ISC",
   "dependencies": {
+    "@angular/cli": "^14.0.2",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
@@ -21,4 +21,5 @@
     "git": "^0.1.5",
     "mongoose": "^6.3.6"
   }
+  
 }

@@ -1,23 +1,20 @@
 //playerController.js
 const express = require('express');
 const router = express.Router();
-const ObjectId = require('mongoose').Types.ObjectId;    
 
-const {Players} = require('../models/players');
+const Players = require('../models/Players');
 
-router.get('/api/Players', (req, res) => {
-Players.find({}, (err, data) => {
-        if(!err) {
-            res.send(data);
-        } else {
-            console.log(err);
-        }
-    });
-    
-});
+router.get('/getplayers', async (req, res) => {
+    const players = await Players.find({});
+    try {
+       res.send(players);
+     } catch (error) {
+       res.status(500).send(error);
+     }
+ })
 
 
-router.get('/api/Player/:id', (req, res) => {
+router.get('/getplayers/:id', async (req, res) => {
     Players.findById(req.params.id, (err, data) => {
         if(!err) {
             res.send(data);
@@ -28,12 +25,12 @@ router.get('/api/Player/:id', (req, res) => {
 });
 
 
-router.post('/api/Players/add', (req, res) => {
-    const emp = new Players({
+router.post('/addplayers',  async (req, res) => {
+    var newplayer = new Players({
         Name: req.body.Name,
         Position: req.body.Position,
         Games_Played: req.body.Games_Played,
-	  Goals: req.body.Goals,
+	    Goals: req.body.Goals,
         Assists: req.body.Assists,
         Penalty_Minutes: req.body.Penalty_Minutes,
         Power_Play_Goals: req.body.Power_Play_Goals,
@@ -41,50 +38,45 @@ router.post('/api/Players/add', (req, res) => {
         Shots_on_Goal: req.body.Shots_on_Goal
 
     });
-    emp.save((err, data) => {
-        if(!err) {
-            // res.send(data);
-            res.status(200).json({code: 200, message: 'Player Added Successfully', addPlayer: data})
-        } else {
-           console.log(err);
+    newplayer.save((err, Players) => {
+        if(err){
+            res.json({msg: 'Failed to add player'});
         }
-    });
-});
-
-router.put('/api/Players/update/:id', (req, res) => {
-
-
-    const emp = {
-        Name: req.body.Name,
-        Position: req.body.Position,
-        Games_Played: req.body.Games_Played,
-	  Goals: req.body.Goals,
-        Assists: req.body.Assists,
-        Penalty_Minutes: req.body.Penalty_Minutes,
-        Power_Play_Goals: req.body.Power_Play_Goals,
-        Power_Play_assists: req.body.Power_Play_assists,
-        Shots_on_Goal: req.body.Shots_on_Goal
-    };
-    Players.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, data) => {
-        if(!err) {
-            res.status(200).json({code: 200, message: 'Player Updated Successfully', updatePlayer: data})
-        } else {
-            console.log(err);
+        else{
+            res.json({msg: 'Player added successfully'});
         }
-    });
-});
+    })
+ })
 
-router.delete('/api/Players/:id', (req, res) => {
+ router.delete('/deleteplay/:id', async (req, res) => {
 
-    Players.findByIdAndRemove(req.params.id, (err, data) => {
-        if(!err) {
-            // res.send(data);
-            res.status(200).json({code: 200, message: 'Player deleted', deletePlayer: data})
-        } else {
-            console.log(err);
-        }
-    });
-});
+    await Players.deleteOne({"_id": req.params.id})
+       .then(result => {
+          if(result.deletedCount === 0){
+            res.json({msg: 'No record was deleted'});
+          }
+          else{
+            res.json({msg: 'Player successfully deleted'});
+          }
+       })
+       .catch(error => res.json(error))
+ })
+
+router.put('/updateplay/:id', async (req, res) => {
+
+
+  
+        await Players.updateMany({'_id': req.params.id},
+        {
+            $set: req.body
+        })
+        .then(result => {
+            res.json({msg: 'Player Updated Successfully'});
+        }) 
+        .catch(error => res.json(error));
+    })
+
+
 
 module.exports = router;
 
