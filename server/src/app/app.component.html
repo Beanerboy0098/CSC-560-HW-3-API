@@ -353,7 +353,7 @@
   <h2>Create/Edit Player</h2>
   <p>Fill fields and select "Add" to add a Player to the database. Fill fields and select update on a particular player to edit that player</p>
   <div class ="row">
-  <div class="col-xl-6">
+  <div class="col-6">
     <body>
       <h3>Position Players</h3>
       <form (submit)="addPlayer()" style="background-color: rgb(230, 212, 173); margin: 30px;">
@@ -403,7 +403,7 @@
     </body>
   </div>
 
-  <div class="col-xl-6">
+  <div class="col-6">
     <body>
       <h3>Goalies</h3>
       <form (submit)="addPlayer()" style="background-color: rgb(230, 212, 173); margin: 30px;">
@@ -442,7 +442,7 @@
 </div>
   <h2>Existing Players</h2>
   <p>List of currently existing Players on the Vegas Golden Knights</p>
-  <div>
+  
     <div *ngFor="let Players of Player" style="margin:25px;" class="flex-container">
       <div class="flex-child">
         <div class = "col-mid-3">
@@ -492,6 +492,7 @@
       
     </ng-template>
         <input type="button" (click) = "deletePlayer(Players._id)"  value="DELETE"> 
+      </div>
       </div>
   <!-- Footer -->
   <footer>
