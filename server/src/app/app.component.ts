@@ -27,7 +27,12 @@ export class AppComponent implements OnInit {
   Wins?: number;
   Loses?: number;
 
-  constructor(private playerService: PlayerService) { }
+  
+  constructor(private playerService: PlayerService) { 
+    this.Position?? "Goalie";
+    const fielddecider = this.Position;
+    
+  }
 
   getPlayers()
   {
@@ -35,6 +40,7 @@ export class AppComponent implements OnInit {
       this.Player = Players;
     });
   }
+
   addPlayer()
   {
     const newPlayer = {
