@@ -446,7 +446,7 @@
   <p>List of currently existing Players on the Vegas Golden Knights
   </p>
   <div>
-    <div ng-if= "Players.Position == Center ; then trueBlock; else falseBlock"> </div>
+    <div *ng-If= "Players.Position == Center ; then trueBlock; else falseBlock"> </div>
     
       <div *ngFor="let Players of Player" style="margin:25px;" class="flex-container">
         <div class="flex-child">
