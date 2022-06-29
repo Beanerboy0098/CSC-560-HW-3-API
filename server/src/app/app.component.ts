@@ -29,8 +29,7 @@ export class AppComponent implements OnInit {
 
   
   constructor(private playerService: PlayerService) { 
-    this.Position?? "Goalie";
-    const fielddecider = this.Position;
+    
     
   }
 

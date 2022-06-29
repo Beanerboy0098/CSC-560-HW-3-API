@@ -450,7 +450,7 @@
     
       <div *ngFor="let Players of Player" style="margin:25px;" class="flex-container">
         <div class="flex-child">
-          
+          <div *ngIf= "this.Position == 'Goalie'; then trueBlock; else falseBlock"></div>
           
           <div class = "col-mid-3">
             Name:     {{Players.Name}}
@@ -458,6 +458,7 @@
           <div class = "col-mid-3">
             Position:     {{Players.Position}}
           </div>
+          <ng-template #trueBlock>
           <div class = "col-mid-3">
             Games Played:     {{Players.Games_Played}}
           </div>
@@ -473,8 +474,9 @@
           <div class = "col-mid-3">
             Loses:     {{Players.Loses}}
           </div>
-     
+          </ng-template>
         
+          <ng-template #falseBlock>
           <div class = "col-mid-3">
             Name:     {{Players.Name}}
           </div>
@@ -500,7 +502,7 @@
           <div class = "col-mid-3">
             Shots on Goal:     {{Players.Shots_on_Goal}}
           </div>
-       
+        </ng-template>
         
         <input type="button" (click) = "deletePlayer(Players._id)"  value="DELETE"> 
 
