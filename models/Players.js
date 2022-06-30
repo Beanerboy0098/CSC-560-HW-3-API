@@ -4,57 +4,70 @@ var Schema = mongoose.Schema;
 //schema
 const PlayerSchema = new Schema( {
     Name: {
-        type: String
+        type: String,
+        required: true
     },
 Position : {
-        type: String
+        type: String,
+        required: true
     },
     Games_Played: {
-        type: Number
+        type: Number,
+        required: true
     },
     
 Goals: {
-        type: Number
+        type: Number,
+        required: true
        
     },
 
 
 Assists: {
-        type: Number
+        type: Number,
+        required: true
     },
 
 
 Penalty_Minutes: {
-        type: Number
+        type: Number,
+        required: true
     },
 
 Power_Play_Goals: {
-        type: Number
+        type: Number,
+        required: true
     },
 
 
 Power_Play_assists: {
-        type: Number
+        type: Number,
+        required: true
     },
 
 Shots_on_Goal: {
-        type: Number
+        type: Number,
+        required: true
     },
 
 Goals_Against: {
-        type: Number
+        type: Number,
+        required: false
     },
 
 Shots_Against: {
-        type: Number
+        type: Number,
+        required: false
     },
 
 Wins: {
-        type: Number
+        type: Number,
+        required: false
     },
 
 Loses: {
-        type: Number
+        type: Number,
+        required: false
     }
 
    

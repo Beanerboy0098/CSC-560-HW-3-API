@@ -66,7 +66,7 @@ router.put('/updateplay/:id', async (req, res) => {
 
 
   
-        await Players.updateMany({'_id': req.params.id},
+        await Players.updateMany({"_id": req.params.id},
         {
             $set: req.body
         })
@@ -76,7 +76,50 @@ router.put('/updateplay/:id', async (req, res) => {
         .catch(error => res.json(error));
     })
 
+    
+ //Alphabeltize the database
+ router.get('/getalphabet', async (req, res) => {
+    await Players.findPlayer.find().sort({"Name":-1})
+       .then(results => {
+          res.json(results);
+       })
+       .catch(error => console.error(error))
+ })
 
+
+ router.get('/getplayermostshots', async (req, res) => {
+    await Players.find().sort({"Shots_on_Goal":-1}).limit(1)
+       .then(result => {
+          res.json(result);
+       })
+       .catch(error => console.error(error))
+ })
+
+ router.get('/getplayermostpenaltyminutes', async (req, res) => {
+    await Players.find().sort({"Penalty_Minutes":-1}).limit(1)
+       .then(result => {
+          res.json(result);
+       })
+       .catch(error => console.error(error))
+ })
+
+
+ router.get('/getplayerleastshotsgoal', async (req, res) => {
+    await Players.find({Shots_on_Goal:{$gte:0}}).sort({Shots_on_Goal:1}).limit(1)
+       .then(result => {
+          res.json(result);
+       })
+       .catch(error => console.error(error))
+ })
+
+
+ router.get('/getorderofplayershotsagainst', async (req, res) => {
+  await Players.find({Shots_Against:{$gte:0}}).sort({Shots_Against:1})
+       .then(results => {
+          res.json(results);
+       })
+       .catch(error => console.error(error))
+ })
 
 module.exports = router;
 

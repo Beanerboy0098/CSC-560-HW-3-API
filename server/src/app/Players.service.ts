@@ -32,5 +32,28 @@ import { Observable,   } from 'rxjs';
     return this.http.put<any>(this.ROOT_URL + '/updateplay/' + id, updatedPlayer);
   }
 
+  getAlphabet()
+  {
+    return this.http.get<Players[]>(this.ROOT_URL + '/getalphabet');
+  }
 
+  getMostShots()
+  {
+    return this.http.get<Players[]>(this.ROOT_URL + '/getplayermostshots');
+  }
+
+  getMostPenaltyMinutes()
+  {
+    return this.http.get<Players[]>(this.ROOT_URL + '/getplayermostpenaltyminutes');
+  }
+
+  getLeastShotsonGoal()
+  {
+    return this.http.get<Players[]>(this.ROOT_URL + '/getplayerleastshotsgoal');
+  }
+
+  gettheOrderPlayerShotsAgainst()
+  {
+    return this.http.get<Players[]>(this.ROOT_URL + '/getorderofplayershotsagainst');
+  }
   }
