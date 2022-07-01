@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from './Players.service';
 import { Players } from './Players';
-
+import { takeUntil } from 'rxjs-compat/operator/takeUntil';
 
 @Component({
   selector: 'app-root',
