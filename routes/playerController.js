@@ -64,10 +64,11 @@ router.post('/addplayers',  async (req, res) => {
 
 router.put('/updateplay/:id', async (req, res) => {
 
-    results = 0;
+    
   
-        await Players.updateMany({'_id': req.params.id},
+        await Players.updateMany({"_id": req.params.id},
         {
+            
             $set: req.body
         })
         .then(results => {
