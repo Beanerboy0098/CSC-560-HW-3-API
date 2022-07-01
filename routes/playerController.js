@@ -1,7 +1,7 @@
 //playerController.js
 const express = require('express');
 const router = express.Router();
-const ObjectId = require('mongoose').Types.ObjectId;
+
 const Players = require('../models/Players');
 
 router.get('/getplayers', async (req, res) => {
@@ -14,15 +14,7 @@ router.get('/getplayers', async (req, res) => {
  })
 
 
-router.get('/getplayers/:id', async (req, res) => {
-    Players.findById(req.params.id, (err, data) => {
-        if(!err) {
-            res.send(data);
-        } else {
-           console.log(err);
-        }
-    });
-});
+
 
 
 router.post('/addplayers',  async (req, res) => {
@@ -80,7 +72,7 @@ router.put('/updateplay/:id', async (req, res) => {
     
  //Alphabeltize the database
  router.get('/getalphabet', async (req, res) => {
-    await Players.findPlayer.find().sort({"Name":-1})
+    await Players.find().sort({"Name":-1})
        .then(results => {
           res.json(results);
        })

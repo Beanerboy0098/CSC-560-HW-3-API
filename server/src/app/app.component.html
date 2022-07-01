@@ -520,7 +520,7 @@
         <input type="button" (click) = "deletePlayer(Players._id)"  value="DELETE"> 
 
      
-    </div>
+    
     
     
   
@@ -529,7 +529,7 @@
     <div class="flex-child">
       <body>
         <h3> Edit Players</h3>
-        <form (submit) = "updatePlayer(Players)" style="background-color: lightblue; margin: 30px;">
+        <form (submit) = "updatePlayer(Players._id)" style="background-color: lightblue; margin: 30px;">
           <div style="margin: 10px;">
             <label for="Name">Full Name</label><br>
             <input type="text" [(ngModel)]="Name" name="Name"><br>
@@ -604,6 +604,7 @@
           
         </form>
       </body>
+    </div>
     </div>
   </div>
   </div>
