@@ -1,7 +1,7 @@
 //playerController.js
 const express = require('express');
 const router = express.Router();
-
+const ObjectId = require('mongoose').Types.ObjectId;
 const Players = require('../models/Players');
 
 router.get('/getplayers', async (req, res) => {
@@ -64,13 +64,13 @@ router.post('/addplayers',  async (req, res) => {
 
 router.put('/updateplay/:id', async (req, res) => {
 
-
+    results = 0;
   
-        await Players.updateMany({"_id": req.params.id},
+        await Players.updateMany({'_id': req.params.id},
         {
             $set: req.body
         })
-        .then(result => {
+        .then(results => {
             res.json({msg: 'Player Updated Successfully'});
         }) 
         .catch(error => res.json(error));

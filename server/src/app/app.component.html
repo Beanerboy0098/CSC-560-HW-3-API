@@ -445,6 +445,14 @@
       </body>
     </div>
   </div>
+
+  <div class="col-xl-12">
+    <button (click)="getAlphabet()">Players listed from A to Z</button>
+    <button (click)="getMostShots()">Player with most Shots on Goal</button>
+    <button (click)="getMostPenaltyMinutes()">Player with most Penalty Minutes</button>
+    <button (click)="getLeastShotsonGoal()">Player with least Shots on Goal</button>
+    <button (click)="gettheOrderPlayerShotsAgainst()">Ordering Goalies Shots Against from highest to lowest</button>
+    </div>
   <h2 class="text-center">Existing Players
   </h2>
   <p>List of currently existing Players on the Vegas Golden Knights
@@ -504,12 +512,12 @@
             Shots on Goal:     {{Players.Shots_on_Goal}}
           </div>
         </ng-template>
-        
+      </div>
         <input type="button" (click) = "deletePlayer(Players._id)"  value="DELETE"> 
 
-     </div>
+     
     </div>
-    </div>
+    
     
   
   
@@ -517,7 +525,7 @@
     <div class="flex-child">
       <body>
         <h3>Player</h3>
-        <form (submit)="updatePlayer(Players._id)" style="background-color: lightblue; margin: 30px;">
+        <form (submit) = "updatePlayer(Players._id)" style="background-color: lightblue; margin: 30px;">
           <div style="margin: 10px;">
             <label for="Name">Full Name</label><br>
             <input type="text" [(ngModel)]="Name" name="Name"><br>
@@ -533,28 +541,7 @@
             <input type="number" [(ngModel)]="Games_Played" name="Games_Played">
           </div>
           
-          <div style="margin: 10px;">
-            <label for="Goals_Against">Goals Against</label><br>
-            <input type="number" [(ngModel)]="Goals_Against" name="Goals_Against">
-          </div>
-          
-          <div style="margin: 10px;">
-            <label for="Shots_Against">Shots Against</label><br>
-            <input type="number" [(ngModel)]="Shots_Against" name="Shots_Against">
-          </div>
-          
-          <div style="margin: 10px;">
-            <label for="Wins">Wins</label><br>
-            <input type="number" [(ngModel)]="Wins" name="Wins">
-          </div>
-
-          
-
-          <div style="margin: 10px;">
-            <label for="Loses">Loses</label><br>
-            <input type="number" [(ngModel)]="Loses" name="Loses">
-          </div>
-
+        
 
           <div style="margin: 10px;">
             <label for="Goals">Goals</label><br>
@@ -585,12 +572,34 @@
             <label for="Shots_on_Goal">Shots on Goal</label><br>
             <input type="number" [(ngModel)]="Shots_on_Goal" name="Shots_on_Goal">
           </div>
-  
+          
+          <div style="margin: 10px;">
+            <label for="Goals_Against">Goals Against</label><br>
+            <input type="number" [(ngModel)]="Goals_Against" name="Goals_Against">
+          </div>
+          
+          <div style="margin: 10px;">
+            <label for="Shots_Against">Shots Against</label><br>
+            <input type="number" [(ngModel)]="Shots_Against" name="Shots_Against">
+          </div>
+          
+          <div style="margin: 10px;">
+            <label for="Wins">Wins</label><br>
+            <input type="number" [(ngModel)]="Wins" name="Wins">
+          </div>
+
+          
+
+          <div style="margin: 10px;">
+            <label for="Loses">Loses</label><br>
+            <input type="number" [(ngModel)]="Loses" name="Loses">
+          </div>
+
           <input type="submit" value = "Edit">
         </form>
       </body>
     </div>
-    
+  </div>
   </div>
  
 

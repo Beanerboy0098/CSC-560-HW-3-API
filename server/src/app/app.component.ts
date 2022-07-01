@@ -90,7 +90,8 @@ deletePlayer(id:any)
 
 updatePlayer(id:any)
 {
-  const updatedPlayer = {
+ 
+  const updatePlayer = {
     Name: this.Name?? "Ben Huber",
     Position: this.Position?? "Left Wing",
     Games_Played: this.Games_Played?? 0,
@@ -106,13 +107,47 @@ updatePlayer(id:any)
     Loses: this.Loses?? 0
   }
 
-  this.playerService.updatePlayer(id, updatedPlayer).subscribe();
+  this.playerService.updatePlayer(id, updatePlayer).subscribe();
 
   this.playerService.getPlayers().subscribe(Players => {
     this.Player = Players;
   });
 }
 
+getAlphabet()
+{
+  this.playerService.getAlphabet().subscribe(Players => {
+    this.Player = Players;
+  });
+}
+
+getMostShots()
+{
+  this.playerService.getMostShots().subscribe(Players => {
+    this.Player = Players;
+  });
+}
+
+getMostPenaltyMinutes()
+{
+  this.playerService.getMostPenaltyMinutes().subscribe(Players => {
+    this.Player = Players;
+  });
+}
+
+getLeastShotsonGoal()
+{
+  this.playerService.getLeastShotsonGoal().subscribe(Players => {
+    this.Player = Players;
+  });
+}
+
+gettheOrderPlayerShotsAgainst()
+{
+  this.playerService.gettheOrderPlayerShotsAgainst().subscribe(Players => {
+    this.Player = Players;
+  });
+}
 ngOnInit(): void {
   this.getPlayers();
 }
