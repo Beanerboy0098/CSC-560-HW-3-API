@@ -91,7 +91,7 @@ deletePlayer(id:any)
 updatePlayer(id:any)
 {
  
-  const updatePlayer = {
+  const updatedPlayer = {
     Name: this.Name?? "Ben Huber",
     Position: this.Position?? "Left Wing",
     Games_Played: this.Games_Played?? 0,
@@ -100,14 +100,10 @@ updatePlayer(id:any)
     Penalty_Minutes: this.Penalty_Minutes?? 0,
     Power_Play_Goals: this.Power_Play_Goals?? 0,
     Power_Play_Assists: this.Power_Play_Assists?? 0,
-    Shots_on_Goal: this.Shots_on_Goal?? 0,
-    Goals_Against: this.Goals_Against?? 0,
-    Shots_Against: this.Shots_Against?? 0,
-    Wins: this.Wins?? 0,
-    Loses: this.Loses?? 0
+    Shots_on_Goal: this.Shots_on_Goal?? 0
   }
 
-  this.playerService.updatePlayer(id, updatePlayer).subscribe();
+  this.playerService.updatePlayer(id, updatedPlayer).subscribe();
 
   this.playerService.getPlayers().subscribe(Players => {
     this.Player = Players;
