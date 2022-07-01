@@ -446,13 +446,7 @@
     </div>
   </div>
 
-  <div class="col-xl-12">
-    <button (click)="getAlphabet()">Players listed from A to Z</button>
-    <button (click)="getMostShots()">Player with most Shots on Goal</button>
-    <button (click)="getMostPenaltyMinutes()">Player with most Penalty Minutes</button>
-    <button (click)="getLeastShotsonGoal()">Player with least Shots on Goal</button>
-    <button (click)="gettheOrderPlayerShotsAgainst()">Ordering Goalies Shots Against from highest to lowest</button>
-    </div>
+  
   <h2 class="text-center">Existing Players
   </h2>
   <p>List of currently existing Players on the Vegas Golden Knights
@@ -524,7 +518,7 @@
  
     <div class="flex-child">
       <body>
-        <h3>Player</h3>
+        <h3> Edit Players</h3>
         <form (submit) = "updatePlayer(Players)" style="background-color: lightblue; margin: 30px;">
           <div style="margin: 10px;">
             <label for="Name">Full Name</label><br>
@@ -596,6 +590,14 @@
           </div>
 
           <input type="submit" value = "Edit">
+
+          <div class="col-xl-12">
+            <button (click)="getAlphabet()">Players listed from A to Z</button>
+            <button (click)="getMostShots()">Player with most Shots on Goal</button>
+            <button (click)="getMostPenaltyMinutes()">Player with most Penalty Minutes</button>
+            <button (click)="getLeastShotsonGoal()">Player with least Shots on Goal</button>
+            <button (click)="gettheOrderPlayerShotsAgainst()">Ordering Goalies Shots Against from highest to lowest</button>
+            </div>
         </form>
       </body>
     </div>
