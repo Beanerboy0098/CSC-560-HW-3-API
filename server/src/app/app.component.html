@@ -1,0 +1,572 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+  p {
+    margin: 0;
+  }
+  .spacer {
+    flex: 1;
+  }
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+  .toolbar img {
+    margin: 0 16px;
+  }
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+  .toolbar #youtube-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+  .toolbar #twitter-logo:hover,
+  .toolbar #youtube-logo:hover {
+    opacity: 0.8;
+  }
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+  .card svg.material-icons path {
+    fill: #888;
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .card {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+  svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #125699;
+  }
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+  .terminal pre {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27,31,35,.2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+  }
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
+    border-color: rgba(27,31,35,.35);
+    background-position: -.5em;
+  }
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+    .card-container > *:not(.circle-link) ,
+    .terminal {
+      width: 100%;
+    }
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+</style>
+<!-- Toolbar -->
+<!-- <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand" routerLinkActive="active" >AppDividend</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <ng-container>
+          <li class="nav-item">
+            <a routerLink = "/getalphabet" class="nav-link">
+              Players listed from A to Z
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink = "dashboard" class="nav-link">
+            Dashboard
+            </a>
+          </li>
+         </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+<div class="content" role="main">
+  <!-- Highlight Card -->
+ 
+  <h2>Create/Edit Player
+  </h2>
+  <p>Fill fields and select "Add" to add a Player to the database. Fill fields and select update on a particular player to edit that player
+  </p>
+  
+  <div class ="row">
+    <div class="col-xl-12">
+      <body>
+        <div class="center">
+        <h3>Position Players
+        </h3>
+      </div>
+        <form (submit)="addPlayer()" style="background-color: rgb(230, 212, 173); margin: 30px;">
+          <div style="margin: 10px;">
+            <label for="Name">Full Name
+            </label>
+            <br>
+            <input type="text" [(ngModel)]="Name" name="name">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Position">Position
+            </label>
+            <br>
+            <input type="text" [(ngModel)]="Position" name="Position">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Games_Played">Games_Played
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Games_Played" name="Games_Played">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Goals">Goals
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Goals" name="Goals">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Assists">Assists
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Assists" name="Assists">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Penalty_Minutes">Penalty_Minutes
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Penalty_Minutes" name="Penalty_Minutes">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Power_Play_Goals">Power_Play_Goals
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Power_Play_Goals" name="Power_Play_Goals">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Power_Play_Assists">Power_Play_Assists
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Power_Play_Assists" name="Power_Play_Assists">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Shots_on_Goal">Shots_on_Goal
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Shots_on_Goal" name="Shots_on_Goal">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Goals_Against">Goals Against
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Goals_Against" name="Goals_Against">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Shots_Against">Shots Against
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Shots_Against" name="Shots_Against">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Wins">Wins
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Wins" name="Wins">
+            <br>
+          </div>
+          <div style="margin: 10px;">
+            <label for="Loses">Loses
+            </label>
+            <br>
+            <input type="number" [(ngModel)]="Loses" name="Loses">
+            <br>
+          </div>
+          <input type="submit" value = "Add">
+        </form>
+      </body>
+    </div>
+    
+  </div>
+
+
+
+
+
+  <div class="col-xl-12">
+    <button (click)="getAlphabet()">Players firsts names listed from Z to A</button>
+    <button (click)="getMostShots()">Player with most Shots on Goal</button>
+    <button (click)="getMostPenaltyMinutes()">Player with most Penalty Minutes</button>
+    <button (click)="getLeastShotsonGoal()">Player with least Shots on Goal</button>
+    <button (click)="gettheOrderPlayerShotsAgainst()">Ordering Goalies Shots Against from lowest to highest</button>
+    </div>
+  
+  <h2 class="text-center">Existing Players
+  </h2>
+  <p>List of currently existing Players on the Vegas Golden Knights
+  </p>
+  <div>
+    
+    
+      <div *ngFor="let Players of Player" style="margin:25px;" class="flex-container">
+        <div class="flex-child">
+          
+          
+          <div class = "col-mid-3">
+            Name:     {{Players.Name}}
+          </div>
+          <div class = "col-mid-3">
+            Position:     {{Players.Position}}
+          </div>
+          <div *ngIf= "Players.Position == 'Goalie'; then trueBlock; else falseBlock"></div>
+          <ng-template #trueBlock>
+          <div class = "col-mid-3">
+            Games Played:     {{Players.Games_Played}}
+          </div>
+          <div class = "col-mid-3">
+            Goals Against:     {{Players.Goals_Against}}
+          </div>
+          <div class = "col-mid-3">
+            Shots Against:     {{Players.Shots_Against}}
+          </div>
+          <div class = "col-mid-3">
+            Wins:     {{Players.Wins}}
+          </div>
+          <div class = "col-mid-3">
+            Loses:     {{Players.Loses}}
+          </div>
+          </ng-template>
+        
+          <ng-template #falseBlock>
+            <div class = "col-mid-3">
+              Games Played:     {{Players.Games_Played}}
+            </div>
+          <div class = "col-mid-3">
+            Goals:     {{Players.Goals}}
+          </div>
+          <div class = "col-mid-3">
+            Assists:     {{Players.Assists}}
+          </div>
+          <div class = "col-mid-3">
+            Penalty Minutes:     {{Players.Penalty_Minutes}}
+          </div>
+          <div class = "col-mid-3">
+            Power Play Goals:     {{Players.Power_Play_Goals}}
+          </div>
+          <div class = "col-mid-3">
+            Power Play Assists:     {{Players.Power_Play_Assists}}
+          </div>
+          <div class = "col-mid-3">
+            Shots on Goal:     {{Players.Shots_on_Goal}}
+          </div>
+        </ng-template>
+      </div>
+        <input type="button" (click) = "deletePlayer(Players._id)"  value="DELETE"> 
+
+     
+    
+    
+    
+  
+  
+ 
+    <div class="flex-child">
+      <body>
+        <h3> Edit Players</h3>
+        <form (submit) = "updatePlayer(Players._id)" style="background-color: lightblue; margin: 30px;">
+          <div style="margin: 10px;">
+            <label for="Name">Full Name</label><br>
+            <input type="text" [(ngModel)]="Name" name="Name"><br>
+          </div>
+          
+          <div style="margin: 10px;">
+            <label for="Position">Position</label><br>
+            <input type="text" [(ngModel)]="Position" name="Position">
+          </div>
+          
+          <div style="margin: 10px;">
+            <label for="Games_Played">Games Played</label><br>
+            <input type="number" [(ngModel)]="Games_Played" name="Games_Played">
+          </div>
+          
+        
+
+          <div style="margin: 10px;">
+            <label for="Goals">Goals</label><br>
+            <input type="number" [(ngModel)]="Goals" name="Goals">
+          </div>
+
+          <div style="margin: 10px;">
+            <label for="Assists">Assists</label><br>
+            <input type="number" [(ngModel)]="Assists" name="Assists">
+          </div>
+
+          <div style="margin: 10px;">
+            <label for="Penalty_Minutes">Penalty Minutes</label><br>
+            <input type="number" [(ngModel)]="Penalty_Minutes" name="Penalty_Minutes">
+          </div>
+
+          <div style="margin: 10px;">
+            <label for="Power_Play_Goals">Power Play Goals</label><br>
+            <input type="number" [(ngModel)]="Power_Play_Goals" name="Power_Play_Goals">
+          </div>
+
+          <div style="margin: 10px;">
+            <label for="Power_Play_Assists">Power Play Assists</label><br>
+            <input type="number" [(ngModel)]="Power_Play_Assists" name="Power_Play_Assists">
+          </div>
+
+          <div style="margin: 10px;">
+            <label for="Shots_on_Goal">Shots on Goal</label><br>
+            <input type="number" [(ngModel)]="Shots_on_Goal" name="Shots_on_Goal">
+          </div>
+          
+          <div style="margin: 10px;">
+            <label for="Goals_Against">Goals Against</label><br>
+            <input type="number" [(ngModel)]="Goals_Against" name="Goals_Against">
+          </div>
+          
+          <div style="margin: 10px;">
+            <label for="Shots_Against">Shots Against</label><br>
+            <input type="number" [(ngModel)]="Shots_Against" name="Shots_Against">
+          </div>
+          
+          <div style="margin: 10px;">
+            <label for="Wins">Wins</label><br>
+            <input type="number" [(ngModel)]="Wins" name="Wins">
+          </div>
+
+          
+
+          <div style="margin: 10px;">
+            <label for="Loses">Loses</label><br>
+            <input type="number" [(ngModel)]="Loses" name="Loses">
+          </div>
+
+          <input type="submit" value = "Edit">
+
+          
+        </form>
+      </body>
+    </div>
+    </div>
+  </div>
+  </div>
+ 
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<router-outlet>
+</router-outlet>

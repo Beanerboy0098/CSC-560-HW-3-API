@@ -1,90 +1,123 @@
 //playerController.js
 const express = require('express');
 const router = express.Router();
-const ObjectId = require('mongoose').Types.ObjectId;    
 
-const {Players} = require('../models/players');
+const Players = require('../models/Players');
 
-router.get('/api/Players', (req, res) => {
-Players.find({}, (err, data) => {
-        if(!err) {
-            res.send(data);
-        } else {
-            console.log(err);
+router.get('/getplayers', async (req, res) => {
+    const players = await Players.find({});
+    try {
+       res.send(players);
+     } catch (error) {
+       res.status(500).send(error);
+     }
+ })
+
+
+
+
+
+router.post('/addplayers', async (req, res) => {
+    var newplayer = new Players({
+        Name: req.body.Name,
+        Position: req.body.Position,
+        Games_Played: req.body.Games_Played,
+	    Goals: req.body.Goals,
+        Assists: req.body.Assists,
+        Penalty_Minutes: req.body.Penalty_Minutes,
+        Power_Play_Goals: req.body.Power_Play_Goals,
+        Power_Play_assists: req.body.Power_Play_assists,
+        Shots_on_Goal: req.body.Shots_on_Goal,
+        Goals_Against: req.body.Goals_Against,
+        Shots_Against: req.body.Shots_Against,
+        Wins: req.body.Wins,
+        Loses: req.body.Loses
+
+    })
+    newplayer.save((err, Players) => {
+        if(err){
+            res.json({msg: 'Failed to add player'});
         }
-    });
+        else{
+            res.json({msg: 'Player added successfully'});
+        }
+    })
+ })
+
+ router.delete('/deleteplay/:id', async (req, res) => {
+
+    await Players.deleteOne({"_id": req.params.id})
+       .then(result => {
+          if(result.deletedCount === 0){
+            res.json({msg: 'No record was deleted'});
+          }
+          else{
+            res.json({msg: 'Player successfully deleted'});
+          }
+       })
+       .catch(error => res.json(error))
+ })
+
+router.put('/updateplay/:id', async (req, res) => {
+
     
-});
+  
+        await Players.updateMany({"_id": req.params.id},
+        {
+            
+            $set: req.body
+        })
+        .then(results => {
+            res.json({msg: 'Player Updated Successfully'});
+        }) 
+        .catch(error => res.json(error));
+    })
 
+    
+ //Reverse alphabeltize first names from Z to A 
+ router.get('/getalphabet', async (req, res) => {
+    await Players.find().sort({"Name":1})
+       .then(results => {
+          res.json(results);
+       })
+       .catch(error => console.error(error))
+ })
 
-router.get('/api/Player/:id', (req, res) => {
-    Players.findById(req.params.id, (err, data) => {
-        if(!err) {
-            res.send(data);
-        } else {
-           console.log(err);
-        }
-    });
-});
+//Get the player with the Most Shots on Goal
+ router.get('/getplayermostshots', async (req, res) => {
+    await Players.find().sort({"Shots_on_Goal":-1}).limit(1)
+       .then(result => {
+          res.json(result);
+       })
+       .catch(error => console.error(error))
+ })
 
+ //Get the player with the most Penalty Minutes
+ router.get('/getplayermostpenaltyminutes', async (req, res) => {
+    await Players.find().sort({"Penalty_Minutes":-1}).limit(1)
+       .then(result => {
+          res.json(result);
+       })
+       .catch(error => console.error(error))
+ })
 
-router.post('/api/Players/add', (req, res) => {
-    const emp = new Players({
-        Name: req.body.Name,
-        Position: req.body.Position,
-        Games_Played: req.body.Games_Played,
-	  Goals: req.body.Goals,
-        Assists: req.body.Assists,
-        Penalty_Minutes: req.body.Penalty_Minutes,
-        Power_Play_Goals: req.body.Power_Play_Goals,
-        Power_Play_assists: req.body.Power_Play_assists,
-        Shots_on_Goal: req.body.Shots_on_Goal
+//Get the player with the least Shots on Goal
+ router.get('/getplayerleastshotsgoal', async (req, res) => {
+    await Players.find({Shots_on_Goal:{$gte:0}}).sort({Shots_on_Goal:1}).limit(1)
+       .then(result => {
+          res.json(result);
+       })
+       .catch(error => console.error(error))
+ })
 
-    });
-    emp.save((err, data) => {
-        if(!err) {
-            // res.send(data);
-            res.status(200).json({code: 200, message: 'Player Added Successfully', addPlayer: data})
-        } else {
-           console.log(err);
-        }
-    });
-});
-
-router.put('/api/Players/update/:id', (req, res) => {
-
-
-    const emp = {
-        Name: req.body.Name,
-        Position: req.body.Position,
-        Games_Played: req.body.Games_Played,
-	  Goals: req.body.Goals,
-        Assists: req.body.Assists,
-        Penalty_Minutes: req.body.Penalty_Minutes,
-        Power_Play_Goals: req.body.Power_Play_Goals,
-        Power_Play_assists: req.body.Power_Play_assists,
-        Shots_on_Goal: req.body.Shots_on_Goal
-    };
-    Players.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, data) => {
-        if(!err) {
-            res.status(200).json({code: 200, message: 'Player Updated Successfully', updatePlayer: data})
-        } else {
-            console.log(err);
-        }
-    });
-});
-
-router.delete('/api/Players/:id', (req, res) => {
-
-    Players.findByIdAndRemove(req.params.id, (err, data) => {
-        if(!err) {
-            // res.send(data);
-            res.status(200).json({code: 200, message: 'Player deleted', deletePlayer: data})
-        } else {
-            console.log(err);
-        }
-    });
-});
+//Get the order of goalies shots against from lowest to highest
+ router.get('/getorderofplayershotsagainst', async (req, res) => {
+  await Players.find({Shots_Against:{$gte:0}}).sort({Shots_Against:1})
+       .then(results => {
+          res.json(results);
+       })
+       .catch(error => console.error(error))
+ })
 
 module.exports = router;
 
