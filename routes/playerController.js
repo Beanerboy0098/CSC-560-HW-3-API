@@ -74,16 +74,16 @@ router.put('/updateplay/:id', async (req, res) => {
     })
 
     
- //Alphabeltize the database
+ //Reverse alphabeltize first names from Z to A 
  router.get('/getalphabet', async (req, res) => {
-    await Players.find().sort({"Name":-1})
+    await Players.find().sort({"Name":1})
        .then(results => {
           res.json(results);
        })
        .catch(error => console.error(error))
  })
 
-
+//Get the player with the Most Shots on Goal
  router.get('/getplayermostshots', async (req, res) => {
     await Players.find().sort({"Shots_on_Goal":-1}).limit(1)
        .then(result => {
@@ -92,6 +92,7 @@ router.put('/updateplay/:id', async (req, res) => {
        .catch(error => console.error(error))
  })
 
+ //Get the player with the most Penalty Minutes
  router.get('/getplayermostpenaltyminutes', async (req, res) => {
     await Players.find().sort({"Penalty_Minutes":-1}).limit(1)
        .then(result => {
@@ -100,7 +101,7 @@ router.put('/updateplay/:id', async (req, res) => {
        .catch(error => console.error(error))
  })
 
-
+//Get the player with the least Shots on Goal
  router.get('/getplayerleastshotsgoal', async (req, res) => {
     await Players.find({Shots_on_Goal:{$gte:0}}).sort({Shots_on_Goal:1}).limit(1)
        .then(result => {
@@ -109,7 +110,7 @@ router.put('/updateplay/:id', async (req, res) => {
        .catch(error => console.error(error))
  })
 
-
+//Get the order of goalies shots against from lowest to highest
  router.get('/getorderofplayershotsagainst', async (req, res) => {
   await Players.find({Shots_Against:{$gte:0}}).sort({Shots_Against:1})
        .then(results => {
