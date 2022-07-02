@@ -42,18 +42,18 @@ export class AppComponent implements OnInit {
 
   addPlayer()
   {
-    const newPlayer = {
-  Name: this.Name?? "Ben Huber",
-  Position: this.Position?? "Left Wing",
-  Games_Played: this.Games_Played?? 0,
-  Goals: this.Goals?? 0,
+  const newPlayer = {
+  Name: this.Name ?? "Ben Huber",
+  Position: this.Position ?? "Left Wing",
+  Games_Played: this.Games_Played ?? 0,
+  Goals: this.Goals ?? 0,
   Assists: this.Assists?? 0,
-  Penalty_Minutes: this.Penalty_Minutes?? 0,
-  Power_Play_Goals: this.Power_Play_Goals?? 0,
-  Power_Play_Assists: this.Power_Play_Assists?? 0,
-  Shots_on_Goal: this.Shots_on_Goal?? 0,
-  Goals_Against: this.Goals_Against?? 0,
-  Shots_Against: this.Shots_Against?? 0,
+  Penalty_Minutes: this.Penalty_Minutes ?? 0,
+  Power_Play_Goals: this.Power_Play_Goals ?? 0,
+  Power_Play_Assists: this.Power_Play_Assists ?? 0,
+  Shots_on_Goal: this.Shots_on_Goal ?? 0,
+  Goals_Against: this.Goals_Against ?? 0,
+  Shots_Against: this.Shots_Against ?? 0,
   Wins: this.Wins?? 0,
   Loses: this.Loses?? 0
     }
