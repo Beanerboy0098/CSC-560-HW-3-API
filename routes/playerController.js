@@ -17,7 +17,7 @@ router.get('/getplayers', async (req, res) => {
 
 
 
-router.post('/addplayers',  async (req, res) => {
+router.post('/addplayers', async (req, res) => {
     var newplayer = new Players({
         Name: req.body.Name,
         Position: req.body.Position,
@@ -27,9 +27,13 @@ router.post('/addplayers',  async (req, res) => {
         Penalty_Minutes: req.body.Penalty_Minutes,
         Power_Play_Goals: req.body.Power_Play_Goals,
         Power_Play_assists: req.body.Power_Play_assists,
-        Shots_on_Goal: req.body.Shots_on_Goal
+        Shots_on_Goal: req.body.Shots_on_Goal,
+        Goals_Against: req.body.Goals_Against,
+        Shots_Against: req.body.Shots_Against,
+        Wins: req.body.Wins,
+        Loses: req.body.Loses
 
-    });
+    })
     newplayer.save((err, Players) => {
         if(err){
             res.json({msg: 'Failed to add player'});
